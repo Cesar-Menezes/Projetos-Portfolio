@@ -1,0 +1,160 @@
+
+* {
+    color: darkred;
+}
+
+
+body {
+    padding: 30px;
+    background-color: burlywood;
+}
+
+
+div {
+    
+    padding: 8px 16px;
+
+    margin: 30px;
+
+    font-size: 20px;
+    font-style: normal;
+    
+    
+}
+
+
+h1, h2 {
+    
+    color:crimson;
+    font-family: 'Snell Roundhand', 'Brush Script MT', 'Lucida Handwriting', 'Segoe Script', cursive;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: 10px;
+    word-spacing: -20px;
+    text-transform: capitalize;
+    text-decoration: underline wavy palevioletred;
+    text-shadow: 2px 2px 2px palevioletred;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 36px;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+h3{
+    margin-top: 15px;
+    font-size: 30px;
+}
+p {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Trebuchet MS', Verdana, sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.copyright{
+    font-size: 14px;
+}
+
+section ul li{
+    list-style-type: disc;
+    list-style-position: inside;
+    
+}
+
+section ol li{
+    list-style-type: decimal;
+    list-style-position: inside;
+    
+    
+}
+
+strong{
+    font-weight: bold;
+}
+
+img {
+    height: 300px;
+    width: 450px;
+    border: 5px solid whitesmoke;
+    border-radius: 8px;
+    display: block;
+    margin: 30px auto;
+}
+
+
+ul ol{
+    margin-top: 30px;
+}
+
+
+li{
+    margin-bottom: 5px;
+    padding: 6px;    
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
+nav li{
+    width: 200px;
+    
+    margin: 30px auto 0;   
+}
+
+nav a{
+    width: 100%;
+    display: inline-block;
+
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    text-align: normal;
+    font-family: 'Trebuchet MS', Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    
+    color: burlywood;
+    background-color: white;
+}
+
+nav a:hover{
+    color: white;
+    background-color: plum;
+}
+
+.text-green{
+    color: green;
+}
+
+#chocolate {
+    border-color:saddlebrown;
+}
+
+#limão{
+    border-color: lightgreen;
+}
+
+#laranja{
+    border-color: orange;
+}
+
+address{
+    margin-top: 30px;
+    text-align: center;
+}
+
