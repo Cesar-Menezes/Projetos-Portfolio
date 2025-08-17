@@ -1,31 +1,25 @@
-
+/* Aplica cor padrão para todos os elementos */
 * {
     color: darkred;
 }
 
-
+/* Estilização geral do corpo */
 body {
     padding: 30px;
     background-color: burlywood;
 }
 
-
+/* Estilização de containers div */
 div {
-    
     padding: 8px 16px;
-
     margin: 30px;
-
     font-size: 20px;
     font-style: normal;
-    
-    
 }
 
-
+/* Cabeçalhos principais com fonte cursiva e cor */
 h1, h2 {
-    
-    color:crimson;
+    color: crimson;
     font-family: 'Snell Roundhand', 'Brush Script MT', 'Lucida Handwriting', 'Segoe Script', cursive;
     text-align: center;
 }
@@ -47,10 +41,12 @@ h2 {
     font-weight: lighter;
 }
 
-h3{
+h3 {
     margin-top: 15px;
     font-size: 30px;
 }
+
+/* Parágrafos com fonte sans-serif */
 p {
     margin-top: 30px;
     text-align: center;
@@ -61,101 +57,170 @@ p {
     letter-spacing: 1px;
 }
 
-.copyright{
+.copyright {
     font-size: 14px;
 }
 
-section ul li{
+/* Listas com estilo apropriado */
+section ul li {
     list-style-type: disc;
     list-style-position: inside;
-    
 }
 
-section ol li{
+section ol li {
     list-style-type: decimal;
     list-style-position: inside;
-    
-    
 }
 
-strong{
+strong {
     font-weight: bold;
 }
 
+/* Imagens estilizadas para manter proporção */
+/* Modificado para width: 450px e height: 300px para mostrar bordas */
+/* Margin auto para centralizar */
+/* Border-radius e borda branca padrão */
 img {
-    height: 300px;
     width: 450px;
+    height: 300px;
     border: 5px solid whitesmoke;
     border-radius: 8px;
     display: block;
     margin: 30px auto;
+    transition: filter 0.3s ease; /* Suaviza possíveis efeitos visuais */
 }
 
-
-ul ol{
+/* Espaçamento entre listas */
+ul ol {
     margin-top: 30px;
 }
 
-
-li{
+/* Espaçamento e padding para itens da lista */
+li {
     margin-bottom: 5px;
     padding: 6px;    
 }
 
-
-a{
+/* Remove sublinhado dos links */
+a {
     text-decoration: none;
 }
 
-
-nav li{
+/* Estilização dos itens do menu de navegação */
+nav li {
     width: 200px;
-    
     margin: 30px auto 0;   
 }
 
-nav a{
+/* Estilização dos links de navegação */
+nav a {
     width: 100%;
     display: inline-block;
-
     padding: 8px 16px;
     border-radius: 8px;
-
     text-align: normal;
     font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-weight: bold;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 1px;
-    
     color: burlywood;
     background-color: white;
 }
 
-nav a:hover{
+nav a:hover {
     color: white;
     background-color: plum;
 }
 
-
-
+/* Cores específicas para as bordas das imagens de cada sabor */
 #chocolate {
-    border-color:saddlebrown;
+    border-color: saddlebrown;
 }
 
-#limao{
+#limao {
     border-color: lightgreen;
 }
 
-#laranja{
+#laranja {
     border-color: orange;
 }
 
-address{
+/* Estilização do address */
+address {
     margin-top: 30px;
     text-align: center;
 }
 
-address a:hover{
+address a:hover {
     text-decoration: underline;
 }
+
+/* ========= Início das modificações para hover e legendas ========= */
+
+/* Centraliza o texto do figcaption e garante que só o figcaption e img sejam afetados */
+figure {
+    position: relative; /* necessário para posicionamento absoluto do figcaption */
+    width: 460px; /* Largura do conjunto (imagem + borda) */
+    height: 310px; /* Altura do conjunto (imagem + borda) */
+    margin: 30px auto;
+}
+
+/* Posiciona o figcaption sobre a imagem, inicialmente invisível */
+figure figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Centraliza texto vertical e horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+
+    /* Texto branco conforme solicitado */
+    color: white;
+
+    /* Inicialmente transparente e não interativo */
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+
+    /* Transição suave para o efeito hover */
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Quando passar o mouse sobre a figura, aplica background com transparência e mostra legenda */
+figure:hover figcaption {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Fundo hover para cada sabor, usando cores transparentes para harmonizar com as bordas */
+
+/* Chocolate */
+figure.chocolate-cake:hover figcaption {
+    background-color: rgba(139, 69, 19, 0.6); /* saddlebrown translúcido */
+}
+
+/* Limão */
+figure.limao-cake:hover figcaption {
+    background-color: rgba(144, 238, 144, 0.6); /* lightgreen translúcido */
+}
+
+/* Laranja */
+figure.laranja-cake:hover figcaption {
+    background-color: rgba(255, 165, 0, 0.6); /* orange translúcido */
+}
+
+/* Página inicial - home-cake com fundo hover cinza translúcido */
+/* Modificação: adicionando efeito hover para home-cake */
+figure.home-cake:hover figcaption {
+    background-color: rgba(100, 100, 100, 0.6); /* cinza translúcido */
+}
+
+/* ================= Fim das modificações ================= */
