@@ -1,0 +1,141 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Trebuchet MS', Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #2a1b6b, #5c44a2);
+  position:relative;
+}
+
+.estrelas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image:
+    radial-gradient(10px 10px at 25% 15%, yellow, transparent),
+    radial-gradient(9px 9px at 65% 35%, yellow, transparent),
+    radial-gradient(8.5px 8.5px at 95% 15%, green, transparent),
+    radial-gradient(8px 8px at 15% 65%, orange, transparent),
+    radial-gradient(7.5px 7.5px at 90% 15%, lightblue, transparent),
+    radial-gradient(7.5px 7.5px at 80% 15%, plum, transparent),
+    radial-gradient(7.5px 7.5px at 60% 15%, palevioletred, transparent);
+    radial-gradient(15.5px 15.5px at 30% 15%, white, transparent),
+    radial-gradient(7.5px 7.5px at 10% 15%, yellow, transparent),
+    radial-gradient(7.5px 7.5px at 55% 15%, yellow, transparent),
+    radial-gradient(7.5px 7.5px at 75% 15%, yellow, transparent);
+
+    
+
+}
+.formulario{
+  width:400px;
+  background-color: rgba(255,255,255, 0.15);
+  border:1px solid rgba(255,255,255, 0.2);
+  backdrop-filter:blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0, 0.2);
+  color:white;
+  border-radius: 16px;
+  padding:35px;
+}
+
+.formulario h1{
+  font-size: 28px;
+  text-align:center;
+  margin-bottom:30px;
+  font-weight:600;
+}
+
+.box-formulario{
+  position:relative;
+  margin-bottom:30px;
+}
+.box-formulario input{
+  width:100%;
+  height:50px;
+  border:none;
+  border-radius:15px;
+  outline:none;
+  color:white;
+  background-color: rgba(255,255,255, 0.1);
+  font-size: 16px;
+  padding:0 15px;
+}
+
+.box-formulario input::placeholder{
+  color:whitesmoke;
+}
+
+.box-formulario i{
+  position:absolute;
+  right:20px;
+  font-size:20px;
+  top:30%;
+}
+
+.lembrar{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-bottom:25px;
+  font-size:15px;
+}
+.lembrar label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  
+}
+.lembrar a{
+  color:whitesmoke;
+  text-decoration:none;
+}
+
+.lembrar a:hover{
+  text-decoration: underline;
+  color:yellow;
+}
+
+button{
+  width:100%;
+  height:50px;
+  background-color:rgba(255,255,255, 0.6);
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  color:black;
+  font-size:16px;
+  font-weight:600;
+}
+
+button:hover{
+  background-color:white;
+  text-decoration: underline;
+  color:darkblue;
+  transition: all 0.2s;  
+}
+
+.link-registro{
+  text-align:center;
+  margin-top:25px;
+  font-size:15px;
+}
+
+.link-registro a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.link-registro a:hover{
+    text-decoration: underline;
+}
