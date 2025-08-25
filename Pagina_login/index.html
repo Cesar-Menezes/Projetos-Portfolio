@@ -5,35 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de login</title>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-rel='stylesheet'> 
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="estrelas"></div>
+
   <div class="formulario">
     <h1>Página de Login</h1>
-    <form action="#">
+    <!-- Corrigido: uso de method="post" -->
+    <form action="#" method="post">
+      
       <div class="box-formulario">
-        <input type="text" placeholder="Usuário" required>
-              <i class="bx bxs-user"></i>
+        <!-- Corrigido: label com "for" para acessibilidade -->
+        <label for="usuario"><i class="bx bxs-user"></i></label>
+        <!-- Corrigido: adição de "id" e "name" -->
+        <input type="text" id="usuario" name="usuario" placeholder="Usuário" required>
       </div>
+
       <div class="box-formulario">
-        <input type="password" placeholder="Senha" required>
-              <i class="bx bxs-lock"></i>
+        <label for="senha"><i class="bx bxs-lock"></i></label>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
       </div>
+
       <div class="lembrar">
-        <label><input type="checkbox">Lembrar a senha</label>
-      <a href="#">Esqueci minha senha</a>
+        <div>
+          <!-- Corrigido: "id" no input e "for" no label -->
+          <input type="checkbox" id="lembrar">
+          <label for="lembrar">Lembrar a senha</label>
+        </div>
+        <a href="#">Esqueci minha senha</a>
       </div>
+
+
       <button type="submit">Entrar</button>
+
       <div class="link-registro">
-        <p>Não tem conta? <a href="#">Registrar</a> </p>
+        <p>Não tem conta? <a href="#">Registrar</a></p>
       </div>  
     </form>
-    
   </div>
-  
-  
 </body>
 </html>

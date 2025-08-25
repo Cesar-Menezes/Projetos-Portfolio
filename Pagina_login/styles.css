@@ -1,26 +1,29 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Trebuchet MS', Verdana, sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', Verdana, sans-serif;
 }
 
 body {
   display: flex;
-  text-align: center;
-  justify-content: center;
+  justify-content: center;   /* Centraliza horizontalmente */
+  align-items: center;       /* Corrigido: centraliza verticalmente também */
   min-height: 100vh;
-  overflow: hidden;
   background: linear-gradient(to bottom, #2a1b6b, #5c44a2);
-  position:relative;
+  position: relative;
+  /* Corrigido: antes era "overflow: hidden" → impedia rolagem vertical */
+  overflow-x: hidden; 
 }
 
-.estrelas{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+/* ===== Fundo com estrelas ===== */
+.estrelas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image:
     radial-gradient(10px 10px at 25% 15%, yellow, transparent),
     radial-gradient(9px 9px at 65% 35%, yellow, transparent),
@@ -28,114 +31,187 @@ body {
     radial-gradient(8px 8px at 15% 65%, orange, transparent),
     radial-gradient(7.5px 7.5px at 90% 15%, lightblue, transparent),
     radial-gradient(7.5px 7.5px at 80% 15%, plum, transparent),
-    radial-gradient(7.5px 7.5px at 60% 15%, palevioletred, transparent);
+    radial-gradient(7.5px 7.5px at 60% 15%, palevioletred, transparent),
     radial-gradient(15.5px 15.5px at 30% 15%, white, transparent),
     radial-gradient(7.5px 7.5px at 10% 15%, yellow, transparent),
     radial-gradient(7.5px 7.5px at 55% 15%, yellow, transparent),
     radial-gradient(7.5px 7.5px at 75% 15%, yellow, transparent);
-
-    
-
 }
-.formulario{
-  width:400px;
-  background-color: rgba(255,255,255, 0.15);
-  border:1px solid rgba(255,255,255, 0.2);
-  backdrop-filter:blur(10px);
-  box-shadow: 0 8px 32px rgba(0,0,0, 0.2);
-  color:white;
+
+
+.formulario {
+  width: 400px;
+  height: 400px; /* Corrigido: quadrado fixo em desktops */
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Corrigido: borda mais visível */
+  border: 2px solid rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: white;
   border-radius: 16px;
-  padding:35px;
+  padding: 35px;
+  z-index: 1; /* Corrigido: garante que não fique atrás das estrelas */
+
+  /* Centraliza conteúdo internamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.formulario h1{
+.formulario h1 {
   font-size: 28px;
-  text-align:center;
-  margin-bottom:30px;
-  font-weight:600;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.box-formulario{
-  position:relative;
-  margin-bottom:30px;
+
+.box-formulario {
+  position: relative;
+  margin-bottom: 30px;
 }
-.box-formulario input{
-  width:100%;
-  height:50px;
-  border:none;
-  border-radius:15px;
-  outline:none;
-  color:white;
-  background-color: rgba(255,255,255, 0.1);
+
+.box-formulario input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
   font-size: 16px;
-  padding:0 15px;
+  /* Corrigido: adiciona espaço à direita para ícone */
+  padding: 0 45px 0 15px; 
 }
 
-.box-formulario input::placeholder{
-  color:whitesmoke;
+.box-formulario input::placeholder {
+  color: whitesmoke;
 }
 
-.box-formulario i{
-  position:absolute;
-  right:20px;
-  font-size:20px;
-  top:30%;
+/* Corrigido: ícone centralizado verticalmente com translateY */
+.box-formulario i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: whitesmoke;
 }
 
-.lembrar{
-  display:flex;
-  align-items:center;
+
+.lembrar {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom:25px;
-  font-size:15px;
-}
-.lembrar label{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  
-}
-.lembrar a{
-  color:whitesmoke;
-  text-decoration:none;
+  margin-bottom: 25px;
+  font-size: 15px;
 }
 
-.lembrar a:hover{
+.lembrar a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.lembrar a:hover {
   text-decoration: underline;
-  color:yellow;
+  color: yellow;
 }
 
-button{
-  width:100%;
-  height:50px;
-  background-color:rgba(255,255,255, 0.6);
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  color:black;
-  font-size:16px;
-  font-weight:600;
+/* ===== Botão ===== */
+button {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  /* Corrigido: transition deve ficar aqui, não dentro de :hover */
+  transition: all 0.2s; 
 }
 
-button:hover{
-  background-color:white;
+button:hover {
+  background-color: white;
   text-decoration: underline;
-  color:darkblue;
-  transition: all 0.2s;  
+  color: darkblue;
 }
 
-.link-registro{
-  text-align:center;
-  margin-top:25px;
-  font-size:15px;
+
+.link-registro {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
 }
 
-.link-registro a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+.link-registro a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
-.link-registro a:hover{
-    text-decoration: underline;
+.link-registro a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 480px) {
+  .formulario {
+    width: 90%;        /* Corrigido: ocupa quase toda a largura */
+    height: 90vw;      /* Corrigido: altura proporcional para manter quadrado */
+    padding: 20px;     /* Reduzido para caber melhor em telas menores */
+  }
+
+  .formulario h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .box-formulario input {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .box-formulario i {
+    font-size: 18px;
+  }
+
+  /* Corrigido: antes ficava espremido, agora quebra em duas linhas */
+  .lembrar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+  }
+
+  button {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .link-registro {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .formulario {
+    width: 95%;     /* Corrigido: quase toda a largura */
+    height: 95vw;   /* Corrigido: mantém quadrado em celulares muito pequenos */
+    padding: 15px;
+  }
+
+  .formulario h1 {
+    font-size: 18px;
+  }
+
+  .box-formulario input {
+    font-size: 13px;
+    padding: 0 40px 0 12px;
+  }
+
+  button {
+    font-size: 13px;
+  }
 }
