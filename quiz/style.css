@@ -5,11 +5,11 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: darkslateblue;
 }
 
-.app{
+.aplicativo {
     background-color: whitesmoke;
     width: 90%;
     max-width: 600px;
@@ -17,24 +17,24 @@ body{
     padding: 30px;
 }
 
-.app h1{
+.aplicativo h1 {
     font-weight: 500;
     color: darkblue;
     border-bottom: 1px solid darkred;
     padding-bottom: 30px;
 }
 
-.quiz{
+.questionario {
     padding: 20px 0;
 }
 
-.quiz h2{
+.questionario h2 {
     font-size: 20px;
     color: darkblue;
     font-weight: 600;
 }
 
-.btn{
+.botao {
     background-color: azure;
     color: black;
     font-weight: 500;
@@ -48,14 +48,14 @@ body{
     transition: all 0.3s;
 }
 
-.btn:hover{
+.botao:hover {
     background-color: blue;
     color: bisque;
 }
 
-#next-btn{
+#proximo-botao {
     background-color: darkblue;
-    color:beige;
+    color: beige;
     font-weight: 500;
     width: 150px;
     border: 0;
@@ -67,10 +67,10 @@ body{
     display: none;
 }
 
-.correct{
+.correto {
     background-color: aquamarine;
 }
 
-.incorrect{
+.incorreto {
     background-color: pink;
 }

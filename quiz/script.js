@@ -1,143 +1,143 @@
-const questions = [
+const perguntas = [
     {
-        question: "Há quanto tempo existe vida na Terra?",
-        answers: [
-            { id: 1, text: "8000 anos", correct: false },
-            { id: 2, text: "10000 anos", correct: false },
-            { id: 3, text: "30000 anos", correct: false },
-            { id: 4, text: "6000 anos", correct: true }
+        enunciado: "Há quanto tempo existe vida na Terra?",
+        respostas: [
+            { id: 1, texto: "8000 anos", correto: false },
+            { id: 2, texto: "10000 anos", correto: false },
+            { id: 3, texto: "30000 anos", correto: false },
+            { id: 4, texto: "6000 anos", correto: true }
         ]
     },
     {
-        question: "Por quanto tempo um ser humano pode viver?",
-        answers: [
-            { id: 1, text: "60-80 anos", correct: false },
-            { id: 2, text: "60-70 anos", correct: false },
-            { id: 3, text: "70-80 anos", correct: true },
-            { id: 4, text: "70-90 anos", correct: false }
+        enunciado: "Por quanto tempo um ser humano pode viver?",
+        respostas: [
+            { id: 1, texto: "60-80 anos", correto: false },
+            { id: 2, texto: "60-70 anos", correto: false },
+            { id: 3, texto: "70-80 anos", correto: true },
+            { id: 4, texto: "70-90 anos", correto: false }
         ]
     },
     {
-        question: "Quais as profissões militares?",
-        answers: [
-            { id: 1, text: "Marinha, Exército e Aeronáutica", correct: true },
-            { id: 2, text: "Motorista, Piloto e Marinheiro", correct: false },
-            { id: 3, text: "Encanador, Eletricista e Pedreiro", correct: false },
-            { id: 4, text: "Policial, Bombeiro e Médico", correct: false }
+        enunciado: "Quais as profissões militares?",
+        respostas: [
+            { id: 1, texto: "Marinha, Exército e Aeronáutica", correto: true },
+            { id: 2, texto: "Motorista, Piloto e Marinheiro", correto: false },
+            { id: 3, texto: "Encanador, Eletricista e Pedreiro", correto: false },
+            { id: 4, texto: "Policial, Bombeiro e Médico", correto: false }
         ]
     },
     {
-        question: "Qual é o maior país da América Latina?",
-        answers: [
-            { id: 1, text: "Colômbia", correct: false },
-            { id: 2, text: "Brasil", correct: true },
-            { id: 3, text: "Argentina", correct: false },
-            { id: 4, text: "Bolívia", correct: false }
+        enunciado: "Qual é o maior país da América Latina?",
+        respostas: [
+            { id: 1, texto: "Colômbia", correto: false },
+            { id: 2, texto: "Brasil", correto: true },
+            { id: 3, texto: "Argentina", correto: false },
+            { id: 4, texto: "Bolívia", correto: false }
         ]
     },
     {
-        question: "Qual é a moeda mais forte do mundo?",
-        answers: [
-            { id: 1, text: "Dólar", correct: false },
-            { id: 2, text: "Franco", correct: false },
-            { id: 3, text: "Euro", correct: true },
-            { id: 4, text: "Shekel", correct: false }
+        enunciado: "Qual é a moeda mais forte do mundo?",
+        respostas: [
+            { id: 1, texto: "Dólar", correto: false },
+            { id: 2, texto: "Franco", correto: false },
+            { id: 3, texto: "Euro", correto: true },
+            { id: 4, texto: "Shekel", correto: false }
         ]
     },
     {
-        question: "Qual é a nação mais influente do mundo?",
-        answers: [
-            { id: 1, text: "Estados Unidos", correct: true },
-            { id: 2, text: "Rússia", correct: false },
-            { id: 3, text: "Brasil", correct: false },
-            { id: 4, text: "China", correct: false }
+        enunciado: "Qual é a nação mais influente do mundo?",
+        respostas: [
+            { id: 1, texto: "Estados Unidos", correto: true },
+            { id: 2, texto: "Rússia", correto: false },
+            { id: 3, texto: "Brasil", correto: false },
+            { id: 4, texto: "China", correto: false }
         ]
     }
 ];
 
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
+const elementoPergunta = document.getElementById("pergunta");
+const botoesResposta = document.getElementById("botoes-resposta");
+const botaoProximo = document.getElementById("proximo-botao");
 
-let currentQuestionIndex = 0;
-let score = 0;
+let indicePerguntaAtual = 0;
+let pontuacao = 0;
 
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0; 
-    nextButton.innerHTML = "Próximo";
-    showQuestion();
+function iniciarQuestionario() {
+    indicePerguntaAtual = 0;
+    pontuacao = 0; 
+    botaoProximo.innerHTML = "Próximo";
+    mostrarPergunta();
 }
 
-function showQuestion() {
-    resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+function mostrarPergunta() {
+    resetarEstado();
+    let perguntaAtual = perguntas[indicePerguntaAtual];
+    let numeroPergunta = indicePerguntaAtual + 1;
+    elementoPergunta.innerHTML = numeroPergunta + ". " + perguntaAtual.enunciado;
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.id + ". " + answer.text; // mostra o ID
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
+    perguntaAtual.respostas.forEach(resposta => {
+        const botao = document.createElement("button");
+        botao.innerHTML = resposta.id + ". " + resposta.texto;
+        botao.classList.add("botao");
+        botoesResposta.appendChild(botao);
 
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
+        if (resposta.correto) {
+            botao.dataset.correto = resposta.correto;
         }
 
-        button.addEventListener("click", selectAnswer);
+        botao.addEventListener("click", selecionarResposta);
     });
 }
 
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
+function resetarEstado() {
+    botaoProximo.style.display = "none";
+    while (botoesResposta.firstChild) {
+        botoesResposta.removeChild(botoesResposta.firstChild);
     }
 }
 
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        score++;
+function selecionarResposta(e) {
+    const botaoSelecionado = e.target;
+    const estaCorreto = botaoSelecionado.dataset.correto === "true";
+    if (estaCorreto) {
+        botaoSelecionado.classList.add("correto");
+        pontuacao++;
     } else {
-        selectedBtn.classList.add("incorrect");
+        botaoSelecionado.classList.add("incorreto");
     }
 
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
+    Array.from(botoesResposta.children).forEach(botao => {
+        if (botao.dataset.correto === "true") {
+            botao.classList.add("correto");
         }
-        button.disabled = true;
+        botao.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    botaoProximo.style.display = "block";
 }
 
-function showScore() {
-    resetState();
-    questionElement.innerHTML = `Você acertou ${score} de ${questions.length}!`;
-    nextButton.innerHTML = "Jogar novamente";
-    nextButton.style.display = "block";
+function mostrarPontuacao() {
+    resetarEstado();
+    elementoPergunta.innerHTML = `Você acertou ${pontuacao} de ${perguntas.length}!`;
+    botaoProximo.innerHTML = "Jogar novamente";
+    botaoProximo.style.display = "block";
 }
 
-function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
+function lidarComBotaoProximo() {
+    indicePerguntaAtual++;
+    if (indicePerguntaAtual < perguntas.length) {
+        mostrarPergunta();
     } else {
-        showScore();
+        mostrarPontuacao();
     }
 }
 
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
+botaoProximo.addEventListener("click", () => {
+    if (indicePerguntaAtual < perguntas.length) {
+        lidarComBotaoProximo();
     } else {
-        startQuiz();
+        iniciarQuestionario();
     }
 });
 
-startQuiz();
+iniciarQuestionario();
