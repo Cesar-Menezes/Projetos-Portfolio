@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, 
+               "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+    padding: 20px;
+}
+
+.calculadora {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    background-color: darkolivegreen;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.visor {
+    height: 80px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: clamp(18px, 5vw, 28px);
+    outline: none;
+    border: none;
+    text-align: right;
+    color: black;
+    background-color: white;
+    pointer-events: none;
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap; /* permite quebra de linha */
+    gap: 10px;
+}
+
+.botoes button {
+    flex: 1 1 calc(25% - 10px); /* 4 botões por linha */
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: clamp(16px, 4vw, 22px);
+    cursor: pointer;
+    
+    transition: transform 0.1s ease, background-color 0.2s ease;
+    text-align: center;
+}
+
+.botoes button:active {
+    transform: scale(0.95);
+    background-color: azure;
+}
+
+.operador {
+    color:darkblue;
+    background-color:darkseagreen;
+}
