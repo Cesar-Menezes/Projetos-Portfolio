@@ -1,0 +1,141 @@
+  :root {
+            --bg-principal: #0b0f19;
+            --bg-card: #111827;
+            --bg-input: #1f2937;
+            --texto-principal: #f9fafb;
+            --texto-secundario: #9ca3af;
+            --cor-borda: #374151;
+            --cor-sucesso: #10b981;
+            --cor-erro: #ef4444;
+            --cor-alerta: #f59e0b;
+            --cor-link: #60a5fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--cor-borda);
+            padding-bottom: 1rem;
+        }
+
+        header h1 { font-size: 1.75rem; }
+        header p { color: var(--texto-secundario); font-size: 0.9rem; margin-top: 5px; }
+
+        /* BARRA DE PESQUISA (FLEXBOX) */
+        .busca-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .busca-container input {
+            flex: 1;
+            background-color: var(--bg-input);
+            border: 1px solid var(--cor-borda);
+            color: var(--texto-principal);
+            padding: 0.85rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .busca-container input:focus { border-color: var(--cor-link); }
+
+        .btn-busca {
+            background-color: var(--cor-link);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-busca:hover { opacity: 0.9; }
+
+        /* LOADING SPINNER */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: var(--texto-secundario);
+        }
+
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--cor-link);
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem auto;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* MENSAGENS DE ERRO */
+        .erro-card {
+            display: none;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--cor-erro);
+            color: var(--cor-erro);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        /* GRID DE ATIVOS RETORNADOS */
+        .grid-ativos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ativo-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--cor-borda);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+
+        .ativo-card:hover { transform: translateY(-2px); }
+
+        .ativo-nome { font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--texto-principal); }
+        .ativo-desc { color: var(--texto-secundario); font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem; }
+        
+        .ativo-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--cor-borda);
+            padding-top: 0.75rem;
+        }
+
+        .badge-linguagem { background-color: var(--bg-input); padding: 0.25rem 0.5rem; border-radius: 4px; }
+        .link-repo { color: var(--cor-link); text-decoration: none; font-weight: 500; }
+        .link-repo:hover { text-decoration: underline; }

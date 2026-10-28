@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoria de Ativos - API Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🔍 Auditoria de Repositórios e Ativos</h1>
+            <p>Módulo de Integração de APIs externa. Consulte dados em tempo real da infraestrutura do GitHub.</p>
+        </header>
+
+        <div class="busca-container">
+            <input type="text" id="input-busca" placeholder="Digite uma organização ou usuário (Ex: facebook, google, microsoft, apple)">
+            <button class="btn-busca" onclick="buscarAtivos()">Auditar</button>
+        </div>
+
+        <div id="erro-mensagem" class="erro-card"></div>
+
+        <div id="loading-estado" class="loading">
+            <div class="spinner"></div>
+            <p>Estabelecendo conexão assíncrona com o servidor externo...</p>
+        </div>
+
+        <div id="grid-ativos" class="grid-ativos"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
