@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle - Chamados de TI</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                🛠️ Core-IT Panel
+            </div>
+            <div class="status-modulo">
+                <p>Módulo de Operações</p>
+                <p class="status-online">● Online</p>
+            </div>
+        </aside>
+
+        <!-- BARRA SUPERIOR (NAVBAR) -->
+        <nav class="navbar">
+            <h1>Gerenciador de Atendimentos</h1>
+            <div id="contador-chamados" class="contador-chamados">
+                Calculando métricas...
+            </div>
+        </nav>
+
+        <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-principal">
+            
+            <!-- FORMULÁRIO DE ENTRADA -->
+            <section class="card">
+                <h2>Novo Chamado Técnico</h2>
+                <form id="form-chamado">
+                    <div class="form-grupo">
+                        <label for="titulo">Equipamento / Sistema</label>
+                        <input type="text" id="titulo" placeholder="Ex: Notebook TI-04 não liga" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="prioridade">Prioridade Crítica</label>
+                        <select id="prioridade">
+                            <option value="baixa">Baixa (Rotina)</option>
+                            <option value="media" selected>Média (Produção Parcial)</option>
+                            <option value="alta">Alta (Bloqueio Total)</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="descricao">Descrição do Problema</label>
+                        <textarea id="descricao" rows="4" placeholder="Detalhes do erro constatado pelo usuário..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Abrir Ticket</button>
+                </form>
+            </section>
+
+            <!-- LISTAGEM E FILTROS -->
+            <section class="listagem-secao">
+                <div class="filtros-container">
+                    <div class="filtro-item">
+                        <select id="filtro-prioridade">
+                            <option value="todos">Todas as Prioridades</option>
+                            <option value="alta">Alta</option>
+                            <option value="media">Média</option>
+                            <option value="baixa">Baixa</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <select id="filtro-status">
+                            <option value="todos">Todos os Status</option>
+                            <option value="aberto">Em Aberto</option>
+                            <option value="concluido">Concluídos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Os cards de chamados serão injetados aqui pelo JavaScript -->
+                <div id="lista-chamados" class="lista-chamados"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Vinculação do Script no final do body para garantir o carregamento do DOM -->
+    <script src="script.js"></script>
+</body>
+</html>

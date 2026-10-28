@@ -1,0 +1,295 @@
+/* ---------------------------------------------
+   VARIÁVEIS & RESET GLOBAL
+--------------------------------------------- */
+:root {
+    --bg-principal: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #334155;
+    --texto-principal: #f8fafc;
+    --texto-secundario: #94a3b8;
+    --cor-borda: #334155;
+    
+    --cor-alta: #ef4444;
+    --cor-media: #f59e0b;
+    --cor-baixa: #10b981;
+    --cor-primaria: #3b82f6;
+    --cor-primaria-hover: #2563eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    min-height: 100vh;
+}
+
+/* ---------------------------------------------
+   1. ESTRUTURA MACRO (CSS GRID)
+--------------------------------------------- */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 
+        "sidebar navbar"
+        "sidebar conteudo";
+    min-height: 100vh;
+}
+
+/* Ajuste responsivo para telas menores */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas: 
+            "navbar"
+            "sidebar"
+            "conteudo";
+    }
+}
+
+/* BARRA SUPERIOR (NAVBAR) */
+.navbar {
+    grid-area: navbar;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--cor-borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.navbar h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.contador-chamados {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+
+/* PAINEL LATERAL (SIDEBAR) */
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--cor-borda);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.logo-area {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+.status-modulo {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.status-online {
+    margin-top: 5px;
+    color: var(--cor-baixa);
+}
+
+/* CONTEÚDO PRINCIPAL (GRID INTERNO) */
+.conteudo-principal {
+    grid-area: conteudo;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .conteudo-principal {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------------------
+   2. FORMULÁRIOS & PALCO DE COMPONENTES (FLEXBOX)
+--------------------------------------------- */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+.form-grupo {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-grupo label {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+}
+
+input, textarea, select {
+    background-color: var(--bg-input);
+    border: 1px solid var(--cor-borda);
+    color: var(--texto-principal);
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--cor-primaria);
+}
+
+.btn {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+/* BARRA DE FILTROS */
+.filtros-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filtro-item {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* ---------------------------------------------
+   3. CARDS DINÂMICOS DOS TICKETS
+--------------------------------------------- */
+.lista-chamados {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chamado-card {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--cor-borda);
+    border-right: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: opacity 0.3s ease;
+}
+
+.chamado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.chamado-titulo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    word-break: break-word;
+}
+
+.chamado-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-alta { background-color: rgba(239, 68, 68, 0.2); color: var(--cor-alta); }
+.badge-media { background-color: rgba(245, 158, 11, 0.2); color: var(--cor-media); }
+.badge-baixa { background-color: rgba(16, 185, 129, 0.2); color: var(--cor-baixa); }
+
+.chamado-descricao {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.chamado-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 0.75rem;
+}
+
+.btn-acao {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-concluir { background-color: rgba(16, 185, 129, 0.2); color: var(--cor-baixa); }
+.btn-concluir:hover { background-color: rgba(16, 185, 129, 0.4); }
+.btn-excluir { background-color: rgba(239, 68, 68, 0.2); color: var(--cor-alta); }
+.btn-excluir:hover { background-color: rgba(239, 68, 68, 0.4); }
+
+.status-concluido {
+    opacity: 0.5;
+}
+
+.status-concluido .chamado-titulo {
+    text-decoration: line-through;
+    color: var(--texto-secundario);
+}
+
+.sem-chamados {
+    text-align: center;
+    color: var(--texto-secundario);
+    padding: 3rem;
+    border: 2px dashed var(--cor-borda);
+    border-radius: 8px;
+}
